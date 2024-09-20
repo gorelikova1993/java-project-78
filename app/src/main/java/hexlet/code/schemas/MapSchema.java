@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 public class MapSchema extends BaseSchema {
+
     public MapSchema required() {
         Predicate<Map> required = new Predicate<Map>() {
             @Override

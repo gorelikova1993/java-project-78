@@ -11,20 +11,20 @@ class StringSchemaTest {
     private StringSchema schema;
 
     @BeforeEach
-    void init() {
+    public void init() {
         v = new Validator();
         schema = v.string();
     }
 
     @Test
-    void testCase1() {
+    public void testCase1() {
         var actual = schema.isValid(null);
         var expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void testCase2() {
+    public void testCase2() {
         schema.required();
         var actual = schema.isValid(null);
         var expected = false;
@@ -32,14 +32,14 @@ class StringSchemaTest {
     }
 
     @Test
-    void testCase3() {
+    public void testCase3() {
         var actual = schema.isValid("");
         var expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void testCase4() {
+    public void testCase4() {
         schema.required();
         var actual = schema.isValid("");
         var expected = false;
@@ -47,21 +47,21 @@ class StringSchemaTest {
     }
 
     @Test
-    void testCaseContains1() {
+    public void testCaseContains1() {
         var actual = schema.contains("wh").isValid("what does the fox say");
         var expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void testCaseContains2() {
+    public void testCaseContains2() {
         var actual = schema.contains("whatthe").isValid("what does the fox say");
         var expected = false;
         assertEquals(actual, expected);
     }
 
     @Test
-    void testCaseMinLength() {
+    public void testCaseMinLength() {
         var actual = schema.minLength(10).minLength(4).isValid("Hexlet");
         var expected = true;
         assertEquals(actual, expected);
