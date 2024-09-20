@@ -1,24 +1,11 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
-public class StringSchema {
-    private List<Predicate> allChecks = new ArrayList<>();
-
-    public boolean isValid(String obj) {
-        if (obj == null) {
-            return true;
-        }
-        if (allChecks.isEmpty()) {
-            return true;
-        }
-
-        for (Predicate<String> predicate : allChecks) {
-            return predicate.test(obj);
-        }
-        return false;
+public class StringSchema extends BaseSchema {
+    @Override
+    public boolean isValid(Object obj) {
+        return super.isValid(obj);
     }
 
     public StringSchema required() {
@@ -28,7 +15,7 @@ public class StringSchema {
                 return string != null && !(string.trim().isEmpty());
             }
         };
-        allChecks.add(isNotEmpty);
+        addToList(isNotEmpty);
         return this;
     }
 
@@ -39,18 +26,18 @@ public class StringSchema {
                 return string.contains(str);
             }
         };
-        allChecks.add(contains);
+        addToList(contains);
         return this;
     }
 
-    public StringSchema minLength(int size) {
+    public StringSchema minLength(int min) {
         Predicate<String> minLength = new Predicate<String>() {
             @Override
             public boolean test(String string) {
-                return string.length() <= size;
+                return string.length() >= min;
             }
         };
-        allChecks.add(minLength);
+        addToList(minLength);
         return this;
     }
 }
