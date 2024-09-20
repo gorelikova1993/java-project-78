@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 public class MapSchema extends BaseSchema {
 
-    public MapSchema required() {
+    public final MapSchema required() {
         Predicate<Map> required = new Predicate<Map>() {
             @Override
             public boolean test(Map map) {
@@ -16,7 +16,7 @@ public class MapSchema extends BaseSchema {
         return this;
     }
 
-    public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
+    public final MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         Predicate<Map> shape = new Predicate<Map>() {
             @Override
             public boolean test(Map map) {
@@ -36,7 +36,7 @@ public class MapSchema extends BaseSchema {
         return this;
     }
 
-    public MapSchema sizeof(int size) {
+    public final MapSchema sizeof(int size) {
         Predicate<Map> sizeof = new Predicate<Map>() {
             @Override
             public boolean test(Map map) {

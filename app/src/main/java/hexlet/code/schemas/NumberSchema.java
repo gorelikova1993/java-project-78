@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema {
 
-    public NumberSchema required() {
+    public final NumberSchema required() {
         Predicate<Integer> required = new Predicate<Integer>() {
             @Override
             public boolean test(Integer i) {
@@ -15,7 +15,7 @@ public class NumberSchema extends BaseSchema {
         return this;
     }
 
-    public NumberSchema positive() {
+    public final NumberSchema positive() {
         Predicate<Integer> positive = new Predicate<Integer>() {
             @Override
             public boolean test(Integer integer) {
@@ -30,7 +30,7 @@ public class NumberSchema extends BaseSchema {
         return this;
     }
 
-    public NumberSchema range(Integer integer1, Integer integer2) {
+    public final NumberSchema range(Integer integer1, Integer integer2) {
         Predicate<Integer> range = new Predicate<Integer>() {
             @Override
             public boolean test(Integer number) {

@@ -8,7 +8,7 @@ public class StringSchema extends BaseSchema {
         return super.isValid(obj);
     }
 
-    public StringSchema required() {
+    public final StringSchema required() {
         Predicate<String> isNotEmpty = new Predicate<String>() {
             @Override
             public boolean test(String string) {
@@ -19,7 +19,7 @@ public class StringSchema extends BaseSchema {
         return this;
     }
 
-    public  StringSchema contains(String str) {
+    public final StringSchema contains(String str) {
         Predicate<String> contains = new Predicate<String>() {
             @Override
             public boolean test(String string) {
@@ -30,7 +30,7 @@ public class StringSchema extends BaseSchema {
         return this;
     }
 
-    public StringSchema minLength(int min) {
+    public final StringSchema minLength(int min) {
         Predicate<String> minLength = new Predicate<String>() {
             @Override
             public boolean test(String string) {
