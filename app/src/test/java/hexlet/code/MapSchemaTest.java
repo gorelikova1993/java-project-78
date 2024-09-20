@@ -12,24 +12,24 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MapSchemaTest {
-    Validator v;
+    private Validator v;
     private MapSchema schema;
 
     @BeforeEach
-    void init() {
+    public void init() {
         v = new Validator();
         schema = v.map();
     }
 
     @Test
-    void testCaseIsValid1() {
+    public void testCaseIsValid1() {
         var actual = schema.isValid(null);
         var expected = true;
         assertEquals(actual, expected);
     }
 
     @Test
-    void testCaseIsValid2() {
+    public void testCaseIsValid2() {
         schema.required();
         var actual = schema.isValid(null);
         var expected = false;
@@ -37,7 +37,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    void testCaseIsValid3() {
+    public void testCaseIsValid3() {
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         var actual = schema.isValid(data);
@@ -46,7 +46,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    void testCaseSizeOf1() {
+    public void testCaseSizeOf1() {
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         schema.sizeof(2);
@@ -56,7 +56,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    void testCaseSizeOf2() {
+    public void testCaseSizeOf2() {
         var data = new HashMap<String, String>();
         data.put("key1", "value1");
         data.put("key2", "value2");
@@ -66,7 +66,7 @@ public class MapSchemaTest {
         assertEquals(actual, expected);
     }
     @Test
-    void testCaseShape1() {
+    public void testCaseShape1() {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
         StringSchema stringSchema = v.string();
         stringSchema.required();
@@ -83,7 +83,7 @@ public class MapSchemaTest {
     }
 
     @Test
-    void testCaseShape2() {
+    public void testCaseShape2() {
         Map<String, BaseSchema<String>> schemas = new HashMap<>();
         StringSchema stringSchema = v.string();
         stringSchema.required();
