@@ -8,18 +8,20 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/89f6e0a03cc9a64c32fc/test_coverage)](https://codeclimate.com/github/gorelikova1993/java-project-78/test_coverage)
 
 
-Проект "Валидатор данных" ("Data Validator") <br />
+<h1>Проект "Валидатор данных" ("Data Validator")</h1> <br />
 Проект направлен на создание собственной библиотеки для проверки корректности (валидации) данных, в зависимости от их типа, а именно строк, чисел и объектов типа Map. <br />
 
-Валидация строк<br />
+<h2>Валидация строк</h2><br />
+
 Реализована возможность проверять строки по валидаторам:<br />
-
-required – любая непустая строка<br />
-minLength – строка равна или длиннее указанного числа<br />
-contains – строка содержит определённую подстроку<br />
+<ul>
+  <li> required – любая непустая строка </li>
+  <li> minLength – строка равна или длиннее указанного числа </li>
+  <li> contains – строка содержит определённую подстроку</li>
+  </ul>
 Пример использования:
-```
 
+```java
 import hexlet.code.Validator;
 import hexlet.code.schemas.StringSchema;
 
@@ -54,7 +56,7 @@ required – любое число включая ноль<br />
 positive – положительное число<br />
 range – диапазон, в который должны попадать числа включая границы<br />
 Пример использования:<br />
-```
+```java
 
 import hexlet.code.Validator;
 import hexlet.code.schemas.NumberSchema;
@@ -90,7 +92,7 @@ schema.isValid(11); // false
 required – требуется тип данных Map<br />
 sizeof – количество пар ключ-значений в объекте Map должно быть равно заданному<br />
 Пример использования:<br />
-```
+```java
 
 import hexlet.code.Validator;
 import hexlet.code.schemas.MapSchema;
