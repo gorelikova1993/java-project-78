@@ -15,11 +15,11 @@ public class MapSchema extends BaseSchema {
         return this;
     }
 
-    public MapSchema shape(Map<String, BaseSchema> schemas) {
+    public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
         Predicate<Map> shape = new Predicate<Map>() {
             @Override
             public boolean test(Map map) {
-                for (Map.Entry<String, BaseSchema> schema : schemas.entrySet()) {
+                for (Map.Entry<String, BaseSchema<String>> schema : schemas.entrySet()) {
                     for (Map.Entry<String, Object> data : ((Map<String, Object>) map).entrySet()) {
                         if (schema.getKey().equals(data.getKey())) {
                             if (!schema.getValue().isValid(data.getValue())) {

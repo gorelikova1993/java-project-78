@@ -67,7 +67,7 @@ public class MapSchemaTest {
     }
     @Test
     void testCaseShape1() {
-        Map<String, BaseSchema> schemas = new HashMap<>();
+        Map<String, BaseSchema<String>> schemas = new HashMap<>();
         StringSchema stringSchema = v.string();
         stringSchema.required();
         schemas.put("name", stringSchema);
@@ -84,7 +84,7 @@ public class MapSchemaTest {
 
     @Test
     void testCaseShape2() {
-        Map<String, BaseSchema> schemas = new HashMap<>();
+        Map<String, BaseSchema<String>> schemas = new HashMap<>();
         StringSchema stringSchema = v.string();
         stringSchema.required();
         schemas.put("name", stringSchema);
