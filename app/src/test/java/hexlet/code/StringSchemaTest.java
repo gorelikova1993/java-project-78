@@ -66,5 +66,4 @@ class StringSchemaTest {
         var expected = true;
         assertEquals(actual, expected);
     }
-
 }

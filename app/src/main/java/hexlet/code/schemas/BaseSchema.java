@@ -1,25 +1,23 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
 public class BaseSchema<T> {
-    private List<Predicate> allChecks = new ArrayList<>();
 
-    public boolean isValid(Object obj) {
-        if (allChecks.isEmpty()) {
-            return true;
+    private Map<String, Predicate> predicates = new LinkedHashMap<>();
+
+    public boolean isValid(Object data) {
+        for (String key : predicates.keySet()) {
+            if (!predicates.get(key).test(data)) {
+                return false;
+            }
         }
-
-        for (Predicate predicate : allChecks) {
-            return predicate.test(obj);
-        }
-
-        return false;
+        return true;
     }
 
-    public void addToList(Predicate<Object> predicate) {
-        allChecks.add(predicate);
+    public void addToList(String str, Predicate<Object> predicate) {
+        predicates.put(str, predicate);
     }
 }

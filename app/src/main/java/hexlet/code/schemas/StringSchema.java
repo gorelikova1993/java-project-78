@@ -15,7 +15,7 @@ public class StringSchema extends BaseSchema {
                 return string != null && !(string.trim().isEmpty());
             }
         };
-        addToList(isNotEmpty);
+        addToList("isNotEmpty", isNotEmpty);
         return this;
     }
 
@@ -26,7 +26,7 @@ public class StringSchema extends BaseSchema {
                 return string.contains(str);
             }
         };
-        addToList(contains);
+        addToList("contains", contains);
         return this;
     }
 
@@ -37,7 +37,7 @@ public class StringSchema extends BaseSchema {
                 return string.length() >= min;
             }
         };
-        addToList(minLength);
+        addToList("minLength", minLength);
         return this;
     }
 }

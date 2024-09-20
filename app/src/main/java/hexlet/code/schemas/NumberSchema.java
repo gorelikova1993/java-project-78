@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
-public class NumberSchema extends BaseSchema{
+public class NumberSchema extends BaseSchema {
 
     public NumberSchema required() {
         Predicate<Integer> required = new Predicate<Integer>() {
@@ -11,7 +11,7 @@ public class NumberSchema extends BaseSchema{
                 return i != null;
             }
         };
-        addToList(required);
+        addToList("required", required);
         return this;
     }
 
@@ -19,10 +19,14 @@ public class NumberSchema extends BaseSchema{
         Predicate<Integer> positive = new Predicate<Integer>() {
             @Override
             public boolean test(Integer integer) {
-                return integer > 0;
+                if (integer == null) {
+                    return true;
+                } else {
+                    return integer > 0;
+                }
             }
         };
-        addToList(positive);
+        addToList("positive", positive);
         return this;
     }
 
@@ -33,7 +37,7 @@ public class NumberSchema extends BaseSchema{
                 return number >= integer1 && number <= integer2;
             }
         };
-        addToList(range);
+        addToList("range", range);
         return this;
     }
 }

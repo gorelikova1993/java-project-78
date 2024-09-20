@@ -32,7 +32,8 @@ public class NumberSchemaTest {
     @Test
     void test3Case() {
         var actual = schema.required().isValid(null);
-        var expected = true;
+        var expected = false;
         assertEquals(actual, expected);
     }
 }
+
