@@ -17,7 +17,7 @@ public class BaseSchema<T> {
         return true;
     }
 
-    public void addToList(String str, Predicate<Object> predicate) {
+    public final void addToList(String str, Predicate<Object> predicate) {
         predicates.put(str, predicate);
     }
 }

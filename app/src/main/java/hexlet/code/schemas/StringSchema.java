@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 public class StringSchema extends BaseSchema {
     @Override
-    public boolean isValid(Object obj) {
+    public final boolean isValid(Object obj) {
         return super.isValid(obj);
     }
 
