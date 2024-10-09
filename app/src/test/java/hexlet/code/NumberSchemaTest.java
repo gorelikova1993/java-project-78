@@ -35,5 +35,19 @@ public final class NumberSchemaTest {
         var expected = false;
         assertEquals(actual, expected);
     }
+
+    @Test
+    public void testCase4() {
+        var actual = schema.required().positive().range(3, 10).isValid(6);
+        var expected = true;
+        assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testCase5() {
+        var actual = schema.required().positive().range(3, 10).isValid(70);
+        var expected = false;
+        assertEquals(actual, expected);
+    }
 }
 
