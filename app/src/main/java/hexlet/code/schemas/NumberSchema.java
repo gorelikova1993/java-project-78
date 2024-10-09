@@ -15,7 +15,7 @@ public class NumberSchema extends BaseSchema {
                 return i != null;
             }
         };
-        addToList("required", required);
+        predicates.put("required", required);
         return this;
     }
 
@@ -34,7 +34,7 @@ public class NumberSchema extends BaseSchema {
                 }
             }
         };
-        addToList("positive", positive);
+        predicates.put("positive", positive);
         return this;
     }
 
@@ -51,7 +51,7 @@ public class NumberSchema extends BaseSchema {
                 return number >= integer1 && number <= integer2;
             }
         };
-        addToList("range", range);
+        predicates.put("range", range);
         return this;
     }
 }

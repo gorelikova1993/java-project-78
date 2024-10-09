@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class BaseSchema<T> {
 
-    private Map<String, Predicate> predicates = new LinkedHashMap<>();
+    protected Map<String, Predicate> predicates = new LinkedHashMap<>();
 
     /**
      * Метод проверяет данные на сконфигурированной схеме.
@@ -20,14 +20,5 @@ public class BaseSchema<T> {
             }
         }
         return true;
-    }
-
-    /**
-     * Метод добавляет предикат в лист проверок.
-     * @param str название предиката
-     * @param predicate сам предикат
-     */
-    public final void addToList(String str, Predicate<Object> predicate) {
-        predicates.put(str, predicate);
     }
 }

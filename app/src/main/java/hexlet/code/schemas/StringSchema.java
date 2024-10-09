@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
-public class StringSchema extends BaseSchema {
+public class StringSchema extends BaseSchema<String> {
     @Override
     public final boolean isValid(Object obj) {
         return super.isValid(obj);
@@ -15,7 +15,7 @@ public class StringSchema extends BaseSchema {
                 return string != null && !(string.trim().isEmpty());
             }
         };
-        addToList("isNotEmpty", isNotEmpty);
+        predicates.put("isNotEmpty", isNotEmpty);
         return this;
     }
 
@@ -26,7 +26,7 @@ public class StringSchema extends BaseSchema {
                 return string.contains(str);
             }
         };
-        addToList("contains", contains);
+        predicates.put("contains", contains);
         return this;
     }
 
@@ -37,7 +37,7 @@ public class StringSchema extends BaseSchema {
                 return string.length() >= min;
             }
         };
-        addToList("minLength", minLength);
+        predicates.put("minLength", minLength);
         return this;
     }
 }

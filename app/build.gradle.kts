@@ -1,11 +1,7 @@
 plugins {
-    application
+    java
     checkstyle
     jacoco
-}
-
-application {
-    mainClass = "hexlet.code.App"
 }
 
 group = "hexlet.code"

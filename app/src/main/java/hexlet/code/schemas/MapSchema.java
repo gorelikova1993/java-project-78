@@ -12,7 +12,7 @@ public class MapSchema extends BaseSchema {
                 return map != null;
             }
         };
-        addToList("required", required);
+        predicates.put("required", required);
         return this;
     }
 
@@ -32,7 +32,7 @@ public class MapSchema extends BaseSchema {
                 return true;
             }
         };
-        addToList("shape", shape);
+        predicates.put("shape", shape);
         return this;
     }
 
@@ -43,7 +43,7 @@ public class MapSchema extends BaseSchema {
                 return map.size() == size;
             }
         };
-        addToList("sizeof", sizeof);
+        predicates.put("sizeof", sizeof);
         return this;
     }
 
